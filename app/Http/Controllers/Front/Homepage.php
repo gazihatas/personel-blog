@@ -54,6 +54,7 @@ class Homepage extends Controller
     {
         return view('front.contact');
     }
+
     public function contactpost(Request $request)
     {
         $rules=[
