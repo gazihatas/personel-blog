@@ -1,257 +1,424 @@
-<body id="page-top">
+<div id="sidebar" class="active">
+    <div class="sidebar-wrapper active">
+        <div class="sidebar-header position-relative">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="logo">
+                    <a href="index.html"><img src="{{asset('back/')}}/assets/images/logo/logo.svg" alt="Logo" srcset=""></a>
+                </div>
+                <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2" opacity=".3"></path><g transform="translate(-210 -1)"><path d="M220.5 2.5v2m6.5.5l-1.5 1.5"></path><circle cx="220.5" cy="11.5" r="4"></circle><path d="m214 5l1.5 1.5m5 14v-2m6.5-.5l-1.5-1.5M214 18l1.5-1.5m-4-5h2m14 0h2"></path></g></g></svg>
+                    <div class="form-check form-switch fs-6">
+                        <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" >
+                        <label class="form-check-label" ></label>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06l-2.53-1.94L12.44 4l1.06-3l1.06 3l3.19.09m3.5 6.91l-1.64 1.25l.59 1.98l-1.7-1.17l-1.7 1.17l.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95l2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85c-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14c.4-.4.82-.76 1.27-1.08c.75-.53 1.93.36 1.85 1.19c-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82c-2.81 3.14-2.7 7.96.31 10.98c3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
+                </div>
+                <div class="sidebar-toggler  x">
+                    <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <ul class="menu">
+                <li class="sidebar-title">Menu</li>
 
-<!-- Page Wrapper -->
-<div id="wrapper">
+                <li
+                    class="sidebar-item active ">
+                    <a href="index.html" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-stack"></i>
+                        <span>Components</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="component-alert.html">Alert</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-badge.html">Badge</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-breadcrumb.html">Breadcrumb</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-button.html">Button</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-card.html">Card</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-carousel.html">Carousel</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-collapse.html">Collapse</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-dropdown.html">Dropdown</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-list-group.html">List Group</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-modal.html">Modal</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-navs.html">Navs</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-pagination.html">Pagination</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-progress.html">Progress</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-spinner.html">Spinner</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="component-tooltip.html">Tooltip</a>
+                        </li>
+                    </ul>
+                </li>
 
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-text">Blog Sitesi Admin <sup>2</sup></div>
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-collection-fill"></i>
+                        <span>Extra Components</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="extra-component-avatar.html">Avatar</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="extra-component-sweetalert.html">Sweet Alert</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="extra-component-toastify.html">Toastify</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="extra-component-rating.html">Rating</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="extra-component-divider.html">Divider</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Layouts</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="layout-default.html">Default Layout</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="layout-vertical-1-column.html">1 Column</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="layout-vertical-navbar.html">Vertical Navbar</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="layout-rtl.html">RTL Layout</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="layout-horizontal.html">Horizontal Menu</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-title">Forms &amp; Tables</li>
+
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-hexagon-fill"></i>
+                        <span>Form Elements</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="form-element-input.html">Input</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="form-element-input-group.html">Input Group</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="form-element-select.html">Select</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="form-element-radio.html">Radio</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="form-element-checkbox.html">Checkbox</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="form-element-textarea.html">Textarea</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item  ">
+                    <a href="form-layout.html" class='sidebar-link'>
+                        <i class="bi bi-file-earmark-medical-fill"></i>
+                        <span>Form Layout</span>
+                    </a>
+                </li>
+
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-pen-fill"></i>
+                        <span>Form Editor</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="form-editor-quill.html">Quill</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="form-editor-ckeditor.html">CKEditor</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="form-editor-summernote.html">Summernote</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="form-editor-tinymce.html">TinyMCE</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item  ">
+                    <a href="table.html" class='sidebar-link'>
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Table</span>
+                    </a>
+                </li>
+
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                        <span>Datatables</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="table-datatable.html">Datatable</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="table-datatable-jquery.html">Datatable (jQuery)</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-title">Extra UI</li>
+
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-pentagon-fill"></i>
+                        <span>Widgets</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="ui-widgets-chatbox.html">Chatbox</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="ui-widgets-pricing.html">Pricing</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="ui-widgets-todolist.html">To-do List</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-egg-fill"></i>
+                        <span>Icons</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="ui-icons-bootstrap-icons.html">Bootstrap Icons </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="ui-icons-fontawesome.html">Fontawesome</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="ui-icons-dripicons.html">Dripicons</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-bar-chart-fill"></i>
+                        <span>Charts</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="ui-chart-chartjs.html">ChartJS</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="ui-chart-apexcharts.html">Apexcharts</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item  ">
+                    <a href="ui-file-uploader.html" class='sidebar-link'>
+                        <i class="bi bi-cloud-arrow-up-fill"></i>
+                        <span>File Uploader</span>
+                    </a>
+                </li>
+
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-map-fill"></i>
+                        <span>Maps</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="ui-map-google-map.html">Google Map</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="ui-map-jsvectormap.html">JS Vector Map</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-title">Pages</li>
+
+                <li
+                    class="sidebar-item  ">
+                    <a href="application-email.html" class='sidebar-link'>
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>Email Application</span>
+                    </a>
+                </li>
+
+                <li
+                    class="sidebar-item  ">
+                    <a href="application-chat.html" class='sidebar-link'>
+                        <i class="bi bi-chat-dots-fill"></i>
+                        <span>Chat Application</span>
+                    </a>
+                </li>
+
+                <li
+                    class="sidebar-item  ">
+                    <a href="application-gallery.html" class='sidebar-link'>
+                        <i class="bi bi-image-fill"></i>
+                        <span>Photo Gallery</span>
+                    </a>
+                </li>
+
+                <li
+                    class="sidebar-item  ">
+                    <a href="application-checkout.html" class='sidebar-link'>
+                        <i class="bi bi-basket-fill"></i>
+                        <span>Checkout Page</span>
+                    </a>
+                </li>
+
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-person-badge-fill"></i>
+                        <span>Authentication</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="auth-login.html">Login</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="auth-register.html">Register</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="auth-forgot-password.html">Forgot Password</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
+                    class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-x-octagon-fill"></i>
+                        <span>Errors</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="error-403.html">403</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="error-404.html">404</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="error-500.html">500</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-title">Raise Support</li>
+
+                <li
+                    class="sidebar-item  ">
+                    <a href="https://zuramai.github.io/mazer/docs" class='sidebar-link'>
+                        <i class="bi bi-life-preserver"></i>
+                        <span>Documentation</span>
+                    </a>
+                </li>
+
+                <li
+                    class="sidebar-item  ">
+                    <a href="https://github.com/zuramai/mazer/blob/main/CONTRIBUTING.md" class='sidebar-link'>
+                        <i class="bi bi-puzzle"></i>
+                        <span>Contribute</span>
+                    </a>
+                </li>
+
+                <li
+                    class="sidebar-item  ">
+                    <a href="https://github.com/zuramai/mazer#donation" class='sidebar-link'>
+                        <i class="bi bi-cash"></i>
+                        <span>Donate</span>
+                    </a>
+                </li>
+                <li
+                    class="sidebar-item  ">
+                    <a href="{{route('admin.logout')}}" class='sidebar-link'>
+                        <i class="bi bi-cash"></i>
+                        <span>ÇIKIŞ</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div id="main">
+    <header class="mb-3">
+        <a href="#" class="burger-btn d-block d-xl-none">
+            <i class="bi bi-justify fs-3"></i>
         </a>
+    </header>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Interface
-        </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Components</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="cards.html">Cards</a>
-                </div>
-            </div>
-        </li>
-
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilities</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                    <a class="collapse-item" href="utilities-border.html">Borders</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
-                </div>
-            </div>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Addons
-        </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-               aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Pages</span>
-            </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" href="login.html">Login</a>
-                    <a class="collapse-item" href="register.html">Register</a>
-                    <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                    <div class="collapse-divider"></div>
-                    <h6 class="collapse-header">Other Pages:</h6>
-                    <a class="collapse-item" href="404.html">404 Page</a>
-                    <a class="collapse-item" href="blank.html">Blank Page</a>
-                </div>
-            </div>
-        </li>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Charts</span></a>
-        </li>
-
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
-
-        <!-- Sidebar Message -->
-        <div class="sidebar-card d-none d-lg-flex">
-            <img class="sidebar-card-illustration mb-2" src="{{asset('back/')}}/img/undraw_rocket.svg" alt="...">
-            <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-            <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-        </div>
-
-    </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-        <!-- Main Content -->
-        <div id="content">
-
-            <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
-
-
-
-                <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
-
-
-                    <!-- Nav Item - Messages -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-envelope fa-fw"></i>
-                            <!-- Counter - Messages -->
-                            <span class="badge badge-danger badge-counter">7</span>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                             aria-labelledby="messagesDropdown">
-                            <h6 class="dropdown-header">
-                                Message Center
-                            </h6>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="{{asset('back/')}}/img/undraw_profile_1.svg"
-                                         alt="...">
-                                    <div class="status-indicator bg-success"></div>
-                                </div>
-                                <div class="font-weight-bold">
-                                    <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                        problem I've been having.</div>
-                                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="{{asset('back/')}}/img/undraw_profile_2.svg"
-                                         alt="...">
-                                    <div class="status-indicator"></div>
-                                </div>
-                                <div>
-                                    <div class="text-truncate">I have the photos that you ordered last month, how
-                                        would you like them sent to you?</div>
-                                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="{{asset('back/')}}/img/undraw_profile_3.svg"
-                                         alt="...">
-                                    <div class="status-indicator bg-warning"></div>
-                                </div>
-                                <div>
-                                    <div class="text-truncate">Last month's report looks great, I am very happy with
-                                        the progress so far, keep up the good work!</div>
-                                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                         alt="...">
-                                    <div class="status-indicator bg-success"></div>
-                                </div>
-                                <div>
-                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                        told me that people say this to all dogs, even if they aren't good...</div>
-                                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                        </div>
-                    </li>
-
-                    <div class="topbar-divider d-none d-sm-block"></div>
-
-                    <!-- Nav Item - User Information -->
-                    <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                        </a>
-                        <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                             aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
-                            </a>
-                        </div>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">@yield('yield')</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                </div>
-
+    <div class="page-heading">
+        <h3>Profile Statistics</h3>
+    </div>
+    <div class="page-content">
+        <section class="row">
