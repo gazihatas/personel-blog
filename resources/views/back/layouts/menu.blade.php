@@ -18,7 +18,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item @if(Request::segment(2)=="panel") active @endif">
             <a class="nav-link" href="{{route('admin.dashboard')}}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Panel</span></a>
@@ -34,16 +34,16 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            <a class="nav-link @if(Request::segment(2)=="makaleler") in @else collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-edit"></i>
                 <span>Makaleler</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseTwo" class="collapse @if(Request::segment(2)=="makaleler") show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Makale İşlemleri:</h6>
-                    <a class="collapse-item" href="buttons.html">Tüm Makaleler</a>
-                    <a class="collapse-item" href="cards.html">Makale oluştur</a>
+                    <a class="collapse-item @if(Request::segment(2)=="makaleler" and !Request::segment(3)) active @endif" href="{{route('admin.makaleler.index')}}">Tüm Makaleler</a>
+                    <a class="collapse-item @if(Request::segment(2)=="makaleler" and Request::segment(3)=='olustur') active @endif" href="{{route('admin.makaleler.create')}}">Makale oluştur</a>
                 </div>
             </div>
         </li>
@@ -188,7 +188,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
+                    <a href="{{route('homepage')}}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-globe fa-sm text-white-50"></i> Siteyi Görüntüle</a>
                 </div>
