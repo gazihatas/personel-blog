@@ -85,7 +85,9 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        return view('edit');
+        $article=Article::findOrFail($id);
+        $categories=Category::all();
+        return view('back.articles.update',compact('categories','article'));
     }
 
     /**
@@ -95,17 +97,38 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id,FlasherInterface $flasher)
     {
-        //
+        $request->validate([
+            'title'=>'min:3',
+            'image'=>'image|mimes:jpeg,png,jpg|max:2048'
+        ]);
+
+        $article=Article::findOrFail($id);
+        $article->title=$request->title;
+        $article->category_id=$request->category;
+        $article->content=$request->contentField;
+        $article->slug=Str::slug($request->title);
+
+        if ($request->hasFile('image'))
+        {
+            $imageName = Str::slug($request->title).'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('/uploads'),$imageName);
+            $article->image='uploads/'.$imageName;
+        }
+        $article->save();
+        $flasher->addInfo('Makale Başarıyla Güncellendi!','Gücelleme');
+        return redirect()->route('admin.makaleler.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function switch(Request $request){
+        $article=Article::findOrFail($request->id);
+        $article->status=$request->statu=="true" ? 1 : 0 ;
+        $article->save();
+    }
+
+
+
     public function destroy($id)
     {
         //

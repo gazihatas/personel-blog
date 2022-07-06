@@ -28,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         Route::resourceVerbs([
             'create' => 'olustur',
+            'edit' => 'guncelle',
+            'delete' =>'sil',
         ]);
     }
 }
