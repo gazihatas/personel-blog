@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Flasher\Prime\FlasherInterface;
+use Illuminate\Support\Facades\File;
 
 class ArticleController extends Controller
 {
@@ -127,7 +128,38 @@ class ArticleController extends Controller
         $article->save();
     }
 
+    public function delete($id, FlasherInterface $flasher)
+    {
+        Article::find($id)->delete();
+        $flasher->addSuccess('Makale Başarıyla Silindi!','Başarılı');
+        return redirect()->route('admin.makaleler.index');
+    }
 
+    public function trashed()
+    {
+        $articles=Article::onlyTrashed()->orderBy('deleted_at','desc')->get();
+        return view('back.articles.trashed',compact('articles'));
+    }
+
+    public function recover($id, FlasherInterface $flasher)
+    {
+        Article::onlyTrashed()->find($id)->restore();
+        $flasher->addSuccess('Makale Çöp Kutusundan Çıkarıldı!','İşlem Başarılı');
+        //return redirect()->route('admin.makaleler.index');
+        return redirect()->back();
+    }
+
+    public function hardDelete($id, FlasherInterface $flasher)
+    {
+        $article=Article::onlyTrashed()->find($id);
+        if (File::exists($article->image))
+        {
+            File::delete(public_path($article->image));
+        }
+        $article->forceDelete();
+        $flasher->addError('Makale Başarıyla Silindi!','Silme İşlemi  Başarılı');
+        return redirect()->route('admin.makaleler.index');
+    }
 
     public function destroy($id)
     {
