@@ -31,7 +31,9 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
     //CATEGORY ROUTE'S
     Route::get('/kategoriler',[CategoryController::class,'index'])->name('category.index');
     Route::post('/kategoriler/create',[CategoryController::class,'create'])->name('category.create');
+    Route::post('/kategoriler/update',[CategoryController::class,'update'])->name('category.update');
     Route::get('/kategoriler/switch',[CategoryController::class,'switch'])->name('category.switch');
+    Route::get('/kategoriler/getData',[CategoryController::class,'getData'])->name('category.getdata');
     Route::get('cikis',[AuthController::class,'logout'])->name('logout');
 });
 
