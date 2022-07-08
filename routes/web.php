@@ -44,6 +44,7 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
     Route::post('/sayfalar/olustur',[PageController::class,'post'])->name('page.create.post');
     Route::get('/sayfa/switch',[PageController::class,'switch'])->name('page.switch');
     Route::get('/sayfa/sil/{id}',[PageController::class,'delete'])->name('page.delete');
+    Route::get('/sayfa/siralama',[PageController::class,'orders'])->name('page.orders');
     //
     Route::get('cikis',[AuthController::class,'logout'])->name('logout');
 });

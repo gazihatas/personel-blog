@@ -9,10 +9,14 @@
             </h6>
         </div>
         <div class="card-body">
+            <div id="orderSuccess" style="display: none;" class="alert alert-success">
+                Sıralama başarıyla güncellendi.
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>Sıralama</th>
                             <th>Fotoğraf</th>
                             <th>Makale Başlığı</th>
                             <th>Durum</th>
@@ -20,9 +24,10 @@
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody id="orders">
                         @foreach($pages as $page)
-                            <tr>
+                            <tr id="page_{{$page->id}}">
+                                <td class="text-center" style="width: 3% !important;"><i class="fa fa-arrows-alt-v fa-3x handle" style="cursor: move"></i></td>
                                 <td>
                                     <img src="{{asset($page->image)}}" width="200" height="200" alt="">
                                 </td>
@@ -44,10 +49,23 @@
     </div>
 @endsection
 @section('css')
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 @endsection
 @section('js')
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>
+    $('#orders').sortable({
+        handle:'.handle',
+        update:function (){
+            let siralama = $('#orders').sortable('serialize');
+            $.get("{{route('admin.page.orders')}}?"+siralama,function (data,status){
+                $("#orderSuccess").show().delay(1000).fadeOut();
+            });
+        }
+    });
+</script>
 <script>
     $(function() {
         $('.switch').change(function() {
