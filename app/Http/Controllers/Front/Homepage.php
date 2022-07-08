@@ -10,6 +10,7 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Mail;
 
 
 class Homepage extends Controller
@@ -68,12 +69,27 @@ class Homepage extends Controller
         {
             return redirect()->route('contact')->withErrors($validate)->withInput();
         }
+
+        Mail::send([],[], function ($message) use ($request){
+            $message->from('iletisim@blogsitesi.com','Blog Sitesi');
+            $message->to('gazi1910hatas@hotmail.com');
+            $message->setBody(' Mesajı Gönderen :'.$request->name.'<br />
+                                Mesajı Gönderen Mail :'.$request->email.'<br />
+                                Mesaj Konusu : '.$request->topic.'<br />
+                                Mesaj : '.$request->message.'<br /><br />
+                                Mesaj Gönderilme Tarihi : '.now().'','text/html');
+            $message->subject($request->name. ' iletişimden mesaj gönderdi!');
+        });
+
+        /*
         $contact = new Contact;
         $contact->name=$request->name;
         $contact->email=$request->email;
         $contact->topic=$request->topic;
         $contact->message=$request->message;
         $contact->save();
+        */
+
         return redirect()->route('contact')->with('success','Mesajınız bana iletildi. İlginiz için teşekkür ederim.');
         //print_r($request->post());
     }
