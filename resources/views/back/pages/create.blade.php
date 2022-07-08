@@ -14,36 +14,26 @@
                     @endforeach
                 </div>
             @endif
-            <form action="{{route('admin.makaleler.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('admin.page.create.post')}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">
-                    <label>Makale Başlığı</label>
+                    <label>Sayfa Başlığı</label>
                     <input type="text" name="title" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Makale Kategori</label>
-                    <select name="category" class="form-control" required>
-                        <option value="">Seçim Yapınız</option>
-                        @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Makale Fotoğrafı</label>
+                    <label>Sayfa Fotoğrafı</label>
                     <input type="file" class="form-control" name="image" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Makale İçeriği</label>
+                    <label>Sayfa İçeriği</label>
                     <textarea id="editor" name="contentField" class="form-control" rows="4"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Makaleyi Oluştur</button>
+                    <button type="submit" class="btn btn-primary btn-block">Sayfayı Oluştur</button>
                 </div>
 
             </form>

@@ -1,5 +1,5 @@
 @extends('back.layouts.master')
-@section('title','Tüm Makaleler')
+@section('title','Tüm Sayfalar')
 @section('content')
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -33,7 +33,8 @@
                                 </td>
                                 <td>
                                     <a href="{{route('page',$page->slug)}}" title="Görüntüle" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
-                                    <a href="{{route('admin.makaleler.edit',$page->id)}}" title="Düzenle" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i></a>
+                                    <a href="{{route('admin.page.edit',$page->id)}}" title="Düzenle" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i></a>
+                                    <a href="{{route('admin.page.delete',$page->id)}}" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                             </tr>
                         @endforeach
                     </tbody>

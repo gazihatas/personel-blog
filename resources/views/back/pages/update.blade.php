@@ -1,5 +1,5 @@
 @extends('back.layouts.master')
-@section('title',$article->title, 'Makalesini Güncelle.')
+@section('title',$page->title, 'Sayfasınu Güncelle.')
 @section('content')
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -14,33 +14,22 @@
                     @endforeach
                 </div>
             @endif
-            <form action="{{route('admin.makaleler.update',$article->id)}}" method="post" enctype="multipart/form-data">
-                @method('PUT')
+            <form action="{{route('admin.page.edit.post',$page->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label>Makale Başlığı</label>
-                    <input type="text" name="title" class="form-control" value="{{$article->title}}" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Makale Kategori</label>
-                    <select name="category" class="form-control" required>
-                        <option value="">Seçim Yapınız</option>
-                        @foreach($categories as $category)
-                            <option @if($article->category_id==$category->id) selected @endif value="{{$category->id}}">{{$category->name}}</option>
-                        @endforeach
-                    </select>
+                    <label>Sayfa Başlığı</label>
+                    <input type="text" name="title" class="form-control" value="{{$page->title}}" required>
                 </div>
 
                 <div class="form-group">
                     <label>Makale Fotoğrafı</label><br>
-                    <img src="{{asset($article->image)}}" class="img-thumbnail rounded" width="300" alt="">
+                    <img src="{{asset($page->image)}}" class="img-thumbnail rounded" width="300" alt="">
                     <input type="file" class="form-control" name="image">
                 </div>
 
                 <div class="form-group">
                     <label>Makale İçeriği</label>
-                    <textarea id="editor" name="contentField" class="form-control" rows="4">{!! $article->content !!}</textarea>
+                    <textarea id="editor" name="contentField" class="form-control" rows="4">{!! $page->content !!}</textarea>
                 </div>
 
                 <div class="form-group">
