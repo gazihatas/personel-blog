@@ -50,6 +50,7 @@
                                    </td>
                                    <td>
                                        <a category-id="{{$category->id}}" class="btn btn-sm btn-primary edit-click" title="Kategoriyi Düzenle"><i class="fa fa-edit text-white"></i></a>
+                                       <a category-id="{{$category->id}}" category-name="{{$category->name}}" category-count="{{$category->articleCount()}}" class="btn btn-sm btn-danger remove-click" title="Kategoriyi Sil"><i class="fa fa-times text-white"></i></a>
                                    </td>
                                </tr>
                            @endforeach
@@ -60,6 +61,7 @@
            </div>
        </div>
    </div>
+
    <div class="modal" id="editModal">
        <div class="modal-dialog">
            <div class="modal-content">
@@ -89,6 +91,29 @@
            </div>
        </div>
    </div>
+
+   <div class="modal" id="deleteModal">
+       <div class="modal-dialog">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h4 class="modal-title">Kategoriyi Sil</h4>
+                   <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+               <div id="body" class="modal-body">
+                   <div class="alert alert-danger" id="articleAlert"></div>
+               </div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+                   <form method="post" action="{{route('admin.category.delete')}}">
+                       @csrf
+                       <input type="hidden" name="id" id="deleteId" />
+                       <button id="deleteButton" type="submit" class="btn btn-success">Sil</button>
+                   </form>
+               </div>
+               </form>
+           </div>
+       </div>
+   </div>
 @endsection
 @section('css')
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
@@ -97,6 +122,28 @@
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <script>
         $(function() {
+            $('.remove-click').click(function(){
+                id = $(this)[0].getAttribute('category-id');
+                count = $(this)[0].getAttribute('category-count');
+                name = $(this)[0].getAttribute('category-name');
+                if(id==1){
+                    $('#articleAlert').html(name+' kategorisi sabit kategoridir. Silinen diğer kategorilere ait makaleler bu kategoriye eklenecektir.');
+                    $('#body').show();
+                    $('#deleteButton').hide();
+                    $('#deleteModal').modal();
+                    return;
+                }
+                $('#deleteButton').show();
+                $('#deleteId').val(id);
+                $('#articleAlert').html('');
+                $('#body').hide();
+                if(count>0){
+                    $('#articleAlert').html('Bu kategoriye ait '+count+' makale bulunmaktadır. Silmek istediğinize emin misiniz ?');
+                    $('#body').show();
+                }
+                $('#deleteModal').modal();
+            });
+
             $('.edit-click').click(function (){
                 id = $(this)[0].getAttribute('category-id');
                 $.ajax({

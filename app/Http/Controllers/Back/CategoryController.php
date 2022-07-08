@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Article;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -53,6 +54,24 @@ class CategoryController extends Controller
     {
         $category=Category::findOrFail($request->id);
         return response()->json($category);
+    }
+
+    public function delete(Request $request,FlasherInterface $flasher){
+        $category=Category::findOrFail($request->id);
+        if($category->id==1){
+            $flasher->addError('Bu kategori Silinemez');
+            return redirect()->back();
+        }
+        $message='';
+        $count=$category->articleCount();
+        if($count>0){
+            Article::where('category_id',$category->id)->update(['category_id'=>1]);
+            $defaultCategory=Category::find(1);
+            $message='Bu kategoriye ait '.$count.' makale '.$defaultCategory->name. ' kategorisine taşındı.';
+        }
+        $category->delete();
+        $flasher->addSuccess($message,'Kategori Başarıyla Silindi');
+        return redirect()->back();
     }
 
     public function switch(Request $request)
