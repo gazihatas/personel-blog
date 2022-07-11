@@ -1,17 +1,15 @@
 @isset($categories)
-<div class="col-md-3">
-    <div class="card">
-        <div class="card-header">
-            Kategoriler
-        </div>
-        <div class="list-group">
-            @foreach($categories as $category)
-                <li class="list-group-item @if(Request::segment(2)==$category->slug) active @endif">
-                    <a @if(Request::segment(2)!=$category->slug) href="{{ route('category',$category->slug) }}" @endif>{{ $category->name }}</a>
-                    <span class="badge bg-danger float-right text-white">{{$category->articleCount()}}</span>
-                </li>
-            @endforeach
-        </div>
-    </div>
-</div>
+<aside class="single_sidebar_widget post_category_widget">
+    <h4 class="widget_title">Post Catgories</h4>
+    <ul class="list cat-list">
+        @foreach($categories as $category)
+            <li class="@if(Request::segment(2)==$category->slug) active @endif">
+                <a @if(Request::segment(2)!=$category->slug) href="{{ route('category',$category->slug) }}" @endif class="d-flex justify-content-between">
+                    <p>{{ $category->name }}</p>
+                    <p>{{$category->articleCount()}}</p>
+                </a>
+            </li>
+        @endforeach
+    </ul>
+</aside>
 @endif

@@ -4,7 +4,7 @@
             <a href="{{route('single',[$article->getCategory->slug,$article->slug])}}">
                 <h2 class="post-title">{{$article->title}}</h2>
                 <img src="{{$article->image}}" alt="image">
-                <h3 class="post-subtitle">{!!  \Illuminate\Support\Str::limit($article->content,75) !!}</h3>
+                <h3 class="post-subtitle">{{  \Illuminate\Support\Str::limit($article->content,75) }}</h3>
             </a>
             <p class="post-meta">
                 <a href="#!">Kategori :{{$article->getCategory->name}}</a>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Http\Controllers\Back\AuthController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Validator;
@@ -11,6 +12,7 @@ use App\Models\Category;
 use App\Models\Page;
 use App\Models\Contact;
 use App\Models\Config;
+use App\Models\Author;
 
 use Illuminate\Support\Facades\Mail;
 
@@ -26,12 +28,13 @@ class Homepage extends Controller
         view()->share('pages',Page::where('status',1)->orderBy('order','ASC')->get());
         view()->share('categories',Category::where('status',1)->inRandomOrder()->get());
         view()->share('config',Config::find(1));
+        view()->share('author',Author::find(1));
     }
 
     public function index() {
         $data['articles']=Article::with('getCategory')->where('status',1)->whereHas('getCategory',function($query){
             $query->where('status',1);
-        })->orderBy('created_at','DESC')->paginate(10);
+        })->orderBy('created_at','DESC')->paginate(5);
         $data['articles']->withPath(url('sayfa'));
         return view('front.homepage',$data);
     }
@@ -60,6 +63,10 @@ class Homepage extends Controller
         return view('front.page',$data);
     }
 
+    public function about()
+    {
+        return view('front.about');
+    }
     public function contact()
     {
         return view('front.contact');
