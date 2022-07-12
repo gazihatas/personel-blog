@@ -4,7 +4,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="google-site-verification" content="PG37lxmTGKGRrJ-Uzf_ldQK5QVlNf7Mkrk71Py74vCU" />
+    <meta name="description" content="Gazi Hataş portfolyo ve blog sitesidir. Yazılım ve diğer alanlardaki notlarımı ve özgeçmiş bilgilerimin bulunduğu kişisel web siteme Hoş Geldin.">
+    <meta name="keywords" content="Gazi Hataş, özgeçmiş, cv, blog, php developer, laravel developer, web developer">
+    <meta name="author" content="Gazi Hataş">
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://gazihatas.xyz"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="PG37lxmTGKGRrJ-Uzf_ldQK5QVlNf7Mkrk71Py74vCU" />
     <link rel="icon" href="{{asset($config->favicon)}}" type="image/png">
     <title>@yield('title') - {{$config->title}}</title>
     <!-- Bootstrap CSS -->
