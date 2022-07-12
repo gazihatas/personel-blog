@@ -44,7 +44,10 @@ services:
 networks:
   laravel:
     driver: bridge
+<<<<<<< HEAD
 Footer
 © 2022 GitHub, Inc.
 Footer navigation
 Term
+=======
+>>>>>>> 04506b3a391a10b4466b52d247f371fd7ff26dd4

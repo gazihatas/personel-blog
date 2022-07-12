@@ -50,16 +50,10 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
-    public function getData(Request $request)
-    {
-        $category=Category::findOrFail($request->id);
-        return response()->json($category);
-    }
-
-    public function delete(Request $request,FlasherInterface $flasher){
+    public function delete(Request $request){
         $category=Category::findOrFail($request->id);
         if($category->id==1){
-            $flasher->addError('Bu kategori Silinemez');
+            toastr()->error('Bu kategori silinemez');
             return redirect()->back();
         }
         $message='';
@@ -70,14 +64,18 @@ class CategoryController extends Controller
             $message='Bu kategoriye ait '.$count.' makale '.$defaultCategory->name. ' kategorisine taşındı.';
         }
         $category->delete();
-        $flasher->addSuccess($message,'Kategori Başarıyla Silindi');
+        toastr()->success($message,'Kategori Başarıyla Silindi');
         return redirect()->back();
     }
 
-    public function switch(Request $request)
-    {
+    public function getData(Request $request){
         $category=Category::findOrFail($request->id);
-        $category->status=$request->statu=="true" ? 1 : 0;
+        return response()->json($category);
+    }
+
+    public function switch(Request $request){
+        $category=Category::findOrFail($request->id);
+        $category->status=$request->statu=="true" ? 1 : 0 ;
         $category->save();
     }
 }
