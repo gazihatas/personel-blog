@@ -49,14 +49,6 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" @if(Request::segment(2)=="kategoriler") style="color:white !important;" @endif href="{{route('admin.category.index')}}">
-                <i class="fas fa-fw fa-list" @if(Request::segment(2)=="kategoriler") style="color:white !important;" @endif></i>
-                <span>Kategoriler</span>
-            </a>
-
-        </li>
-
-        <li class="nav-item">
             <a class="nav-link @if(Request::segment(2)=="sayfalar") in @else collapsed @endif" href="#" data-toggle="collapse" data-target="#collapsePage"
                aria-expanded="true" aria-controls="collapsePage">
                 <i class="fas fa-fw fa-folder"></i>
@@ -70,6 +62,24 @@
                 </div>
             </div>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" @if(Request::segment(2)=="kategoriler") style="color:white !important;" @endif href="{{route('admin.category.index')}}">
+                <i class="fas fa-fw fa-list" @if(Request::segment(2)=="kategoriler") style="color:white !important;" @endif></i>
+                <span>Kategoriler</span>
+            </a>
+
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" @if(Request::segment(2)=="yazar") style="color:white !important;" @endif href="{{route('admin.author.index')}}">
+                <i class="fas fa-fw fa-list" @if(Request::segment(2)=="yazar") style="color:white !important;" @endif></i>
+                <span>Yazar</span>
+            </a>
+
+        </li>
+
+
 
         <!-- Divider -->
         <hr class="sidebar-divider">
@@ -94,12 +104,7 @@
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
 
-        <!-- Sidebar Message -->
-        <div class="sidebar-card d-none d-lg-flex">
-            <img class="sidebar-card-illustration mb-2" src="{{asset('back/')}}img/undraw_rocket.svg" alt="...">
-            <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-            <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-        </div>
+
 
     </ul>
     <!-- End of Sidebar -->

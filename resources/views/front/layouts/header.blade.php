@@ -1,71 +1,123 @@
-<!DOCTYPE html>
-<html lang="tr">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{asset($config->favicon)}}" type="image/png">
     <title>@yield('title') - {{$config->title}}</title>
-    <link rel="icon" type="image/x-icon" href="{{asset('front/')}}/assets/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="{{asset('front/')}}/css/styles.css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/png" href="{{asset($config->favicon)}}">
-    <!--
-    <link rel="icon" href="{{-- url($config->favicon) --}}">
-    <link rel="stylesheet" type="text/css" href="{{-- url($config->favicon) --}}">
-    -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('frontNew/')}}/css/bootstrap.css">
+    <link rel="stylesheet" href="{{asset('frontNew/')}}/vendors/linericon/style.css">
+    <link rel="stylesheet" href="{{asset('frontNew/')}}/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('frontNew/')}}/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{asset('frontNew/')}}/vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="{{asset('frontNew/')}}/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="{{asset('frontNew/')}}/vendors/animate-css/animate.css">
+    <link rel="stylesheet" href="{{asset('frontNew/')}}/vendors/jquery-ui/jquery-ui.css">
+
+
+
+    <!-- main css -->
+    <link rel="stylesheet" href="{{asset('frontNew/')}}/css/style.css">
+    <link rel="stylesheet" href="{{asset('frontNew/')}}/css/responsive.css">
+
+    <!-- MAIN STYLE -->
+    <link rel="stylesheet" href="{{asset('frontNew/')}}/css/tooplate-style.css">
+
+
+
+    <link rel="stylesheet" href="{{asset('frontNew/demo/')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('frontNew/demo/')}}/css/unicons.css">
+    <link rel="stylesheet" href="{{asset('frontNew/demo/')}}/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{asset('frontNew/demo/')}}/css/owl.theme.default.min.css">
+
+    <!-- MAIN STYLE -->
+    <link rel="stylesheet" href="{{asset('frontNew/demo/')}}/css/tooplate-style.css">
+
+    @yield('css')
 </head>
-<body>
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="{{route('homepage')}}">
+<body  class="dark">
+
+<!--================Header Menu Area =================-->
+<header class="header_area">
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container box_1620">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="{{route('homepage')}}">
+                    @if($config->logo!=null)
+                        <img src="{{asset($config->logo)}}" width="150px" alt="logo">
+                    @else
+                        {{$config->title}}
+                    @endif
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav">
+                        <li class="nav-item active"><a class="nav-link" href="{{route('homepage')}}">Anasayfa</a></li>
+                        @foreach($pages as $page)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('page',$page->slug)}}">{{$page->title}}</a>
+                            </li>
+                        @endforeach
+                      <!--
+                        <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>
+
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="single-blog.html">Sinlge Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
+                            </ul>
+                        </li>
+                        -->
+                        <li class="nav-item"><a class="nav-link" href="{{route('about')}}">Hakkımda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">İletişim</a></li>
+                    </ul>
+                    {{--
+                    <ul class="nav navbar-nav navbar-right header_social ml-auto">
+                        @php $socials=['facebook','twitter','github','linkedin','youtube','instagram']; @endphp
+                        @foreach($socials as $social)
+                            @if($config->$social!=null)
+                                <li class="nav-item"><a href="{{$config->$social}}" target="_blank"><i class="fa fa-{{$social}}"></i></a></li>
+                            @endif
+                        @endforeach
+                    </ul>
+                    --}}
+                    <ul class="navbar-nav ml-lg-auto">
+                        <div class="ml-lg-4">
+                            <div class="color-mode d-lg-flex justify-content-center align-items-center">
+                                <i class="color-mode-icon"></i>
+                                Color mode
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="logo_part">
+        <div class="container">
             @if($config->logo!=null)
-            <img src="{{asset($config->logo)}}" width="150px" alt="logo">
+                <a class="logo" href="{{route('homepage')}}"><img src="{{asset($config->logo)}}" width="150px" alt="logo"></a>
             @else
                 {{$config->title}}
             @endif
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('homepage')}}">Anasayfa</a>
-                </li>
-                @foreach($pages as $page)
-                    <li class="nav-item">
-                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('page',$page->slug)}}">{{$page->title}}</a>
-                    </li>
-                @endforeach
-                <li class="nav-item">
-                    <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('contact')}}">İletişim</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- Page Header-->
-<header class="masthead" style="background-image: url('@yield('bg',asset('front/img/home-bg.jpg'))')">
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-12 col-lg-8 col-xl-7">
-                <div class="site-heading">
-                    <h2>@yield('title')</h2>
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
-                </div>
-            </div>
+
         </div>
     </div>
 </header>
+<!--================Header Menu Area =================-->
 
-<!-- Main Content-->
-<div class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
+
+
+
+
+
+

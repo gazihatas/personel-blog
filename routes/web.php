@@ -8,6 +8,7 @@ use App\Http\Controllers\Back\ArticleController;
 use App\Http\Controllers\Back\CategoryController;
 use App\Http\Controllers\Back\PageController;
 use App\Http\Controllers\Back\ConfigController;
+use App\Http\Controllers\Back\AuthorController;
 
 
 
@@ -53,6 +54,9 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
     Route::get('/sayfa/switch',[PageController::class,'switch'])->name('page.switch');
     Route::get('/sayfa/sil/{id}',[PageController::class,'delete'])->name('page.delete');
     Route::get('/sayfa/siralama',[PageController::class,'orders'])->name('page.orders');
+    //AUTHOR'S ROUTE'S
+    Route::get('/yazar',[AuthorController::class,'index'])->name('author.index');
+    Route::post('/yazar/update',[AuthorController::class,'update'])->name('author.update');
     //CONFIG'S ROUTE'S
     Route::get('/ayarlar',[ConfigController::class,'index'])->name('config.index');
     Route::post('/ayarlar/update',[ConfigController::class,'update'])->name('config.update');
@@ -68,7 +72,8 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
 |--------------------------------------------------------------------------
 */
 Route::get('/',[Homepage::class, 'index'])->name('homepage');
-Route::get('sayfa',[Homepage::class, 'index']);
+Route::get('sayfa',[Homepage::class, 'index'])->name('sayfa');
+Route::get('/hakkimda',[Homepage::class,'about'])->name('about');
 Route::get('/iletisim',[Homepage::class,'contact'])->name('contact');
 Route::post('/iletisim',[Homepage::class,'contactpost'])->name('contact.post');
 Route::get('/kategori/{category}',[Homepage::class,'category'])->name('category');

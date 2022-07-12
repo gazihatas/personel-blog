@@ -24,7 +24,7 @@
                                 <label>Site Aktiflik Durumu</label>
                                 <select name="active" class="form-control">
                                     <option @if($config->active==1) selected @endif value="1">Açık</option>
-                                    <option @if($config->active==1) selected @endif value="0">Kapalı</option>
+                                    <option @if($config->active==0) selected @endif value="0">Kapalı</option>
                                 </select>
                             </div>
                         </div>
